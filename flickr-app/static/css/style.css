@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "svgicons";
+  src: url("../fonts/svgicons.eot");
+  src: url("../fonts/svgicons.eot?#iefix") format("eot"), url("../fonts/svgicons.woff") format("woff"), url("../fonts/svgicons.ttf") format("truetype"); }
+
+.font-arrows:before, .font-cross-mark:before, .font-download:before, .font-link:before, .font-linkedin:before, .font-search:before {
+  font-family: "svgicons";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: none; }
+
+.font-arrows:before {
+  content: ""; }
+
+.font-cross-mark:before {
+  content: ""; }
+
+.font-download:before {
+  content: ""; }
+
+.font-link:before {
+  content: ""; }
+
+.font-linkedin:before {
+  content: ""; }
+
+.font-search:before {
+  content: ""; }
