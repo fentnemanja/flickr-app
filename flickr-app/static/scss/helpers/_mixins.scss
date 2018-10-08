@@ -1,0 +1,78 @@
+/*
+* Breakpoint system
+* Example: @include breakpoint($desktop)
+* or @include breakpoint($tablet-portrait $mobile) 
+* -------------------------------------------------------------------------------------------------------------------------
+*/
+
+@mixin breakpoint($values: '') {
+	@if ($values != '') {
+		@each $val in $values {
+			@media #{$val} {
+				@content;
+			}
+		}
+	}
+}
+
+
+/*
+ * Clearfix
+ * Source: http://nicolasgallagher.com/micro-clearfix-hack/
+ * -------------------------------------------------------------------------------------------------------------------------
+ */
+
+ @mixin clearfix() {
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+
+	&:after {
+		clear:both;
+	}
+}
+
+
+/*
+ * Rounded corners
+ * -------------------------------------------------------------------------------------------------------------------------
+ */
+
+ @mixin rounded($radius: 5px) {
+	border-radius: $radius;
+}
+
+@mixin rounded-top($radius: 5px) {
+	border-top-right-radius: $radius;
+	border-top-left-radius: $radius;
+}
+
+@mixin rounded-right($radius: 5px) {
+	border-bottom-right-radius: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin rounded-bottom($radius: 5px) {
+	border-bottom-right-radius: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin rounded-left($radius: 5px) {
+	border-bottom-left-radius: $radius;
+	border-top-left-radius: $radius;
+}
+
+
+/*
+ * Text
+ * Source (truncate-text): http://hackingui.com/front-end/10-best-scss-utilities/
+ * -------------------------------------------------------------------------------------------------------------------------
+ */
+
+@mixin truncate-text($overflow: ellipsis){
+	overflow: hidden;
+	text-overflow: $overflow; // values are: clip, ellipsis, or a string
+	white-space: nowrap;
+}
