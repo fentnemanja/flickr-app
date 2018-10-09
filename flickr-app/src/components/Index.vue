@@ -1,15 +1,16 @@
 <template>
-	<div>
-		<h1>Hello World</h1>
-	</div>
+		<div>
+			<h2>Main content will be here</h2>
+		</div>
 </template>
 
 <script>
+
 export default {
-  name: 'HelloWorld',
+  name: 'Index',
+
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
