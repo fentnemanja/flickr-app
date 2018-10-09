@@ -8,7 +8,7 @@ var gulp            = require('gulp'),
 gulp.task('scss', function() {
     var processors = [
         autoprefixer({
-            browsers: ['last 3 versions', 'ios >=7']
+            browsers: ['last 3 versions', 'ios >=9']
         })
     ];
 
@@ -19,7 +19,7 @@ gulp.task('scss', function() {
 });
 
 gulp.task('iconfont', function() {
-    return gulp.src(['src/svg/*.svg'])
+    return gulp.src(['static/svg/*.svg'])
         .pipe(iconfontCss({
             fontName: 'svgicons',
             cssClass: 'font',

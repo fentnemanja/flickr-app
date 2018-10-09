@@ -4,21 +4,29 @@
 // --------------------------------------------------
 
 /*
- * Breakpoints & MediaQueries
- * NOTE: When you make a new media query variable, please add it also to "_mq-set.scss"
- * -------------------------------------------------------------------------------------------------------------------------
- */
+* Breakpoints & MediaQueries
+* NOTE: When you make a new media query variable, please add it also to "_mq-set.scss"
+* -------------------------------------------------------------------------------------------------------------------------
+*/
 
- $desktop: 'only screen and (min-width: 1025px)';
- $below-desktop: 'only screen and (max-width : 1024px)';
+$desktop: 'only screen and (min-width: 1025px)';
+$below-desktop: 'only screen and (max-width : 1024px)';
 
- $tablet-landscape: 'only screen and (min-width : 901px) and (max-width: 1024px)';
- $tablet-portrait: 'only screen and (min-width : 768px) and (max-width: 900px)';
+$tablet-landscape: 'only screen and (min-width : 901px) and (max-width: 1024px)';
+$tablet-portrait: 'only screen and (min-width : 768px) and (max-width: 900px)';
 
- $above-tablet-portrait: 'only screen and (min-width: 901px)';
- $below-tablet-portrait: 'only screen and (max-width: 900px)';
+$above-tablet-portrait: 'only screen and (min-width: 901px)';
+$below-tablet-portrait: 'only screen and (max-width: 900px)';
 
- $above-mobile: 'only screen and (min-width : 768px)';
- $mobile: 'only screen and (max-width : 767px)';
- $mobile-portrait: 'only screen and (max-device-width: 480px) and (orientation: portrait)';
- $mobile-landscape: 'only screen and (min-device-width: 480px) and (max-device-width: 767px) and (orientation: landscape)';
+$above-mobile: 'only screen and (min-width : 768px)';
+$mobile: 'only screen and (max-width : 767px)';
+$mobile-portrait: 'only screen and (max-device-width: 480px) and (orientation: portrait)';
+$mobile-landscape: 'only screen and (min-device-width: 480px) and (max-device-width: 767px) and (orientation: landscape)';
+
+
+// ==================================================
+// Colors : Names from : http://chir.ag/projects/name-that-color
+// ==================================================
+
+$white					:#fff;
+$black					:#000;
