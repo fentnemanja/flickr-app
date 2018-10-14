@@ -53,9 +53,9 @@
                         <li><a href="javascript:;">Explore</a></li>
                     </ul>
                     <a href="javascript:;" class="btn outlined">Login</a>
-                    <a class="close-mobile-nav hide-desktop" href="javascript:;"><i class="font-icon-x"></i></a>
+                    <a class="close-mobile-nav hide-above-mobile" href="javascript:;"><i class="font-icon-x"></i></a>
                 </div>
-                <a class="open-mobile-nav hide-desktop" href="javascript:;">
+                <a class="open-mobile-nav hide-above-mobile" href="javascript:;">
                     <i class="font-icon-menu-horizontal"></i>
                 </a>
             </nav>

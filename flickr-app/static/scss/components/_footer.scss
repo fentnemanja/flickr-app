@@ -1,0 +1,54 @@
+.footer {
+    background-color: $mine-shaft;
+    margin-top: 200px;
+
+    a {
+        text-decoration: none;
+    }
+
+    h3 {
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    li {
+        margin-top: 10px;
+
+        a {
+            color: $dusty-gray;
+        }
+    }
+
+    .footer-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+
+    .footer-logo-wrapper {
+        height: 40px;
+    }
+
+    img {
+        width: auto;
+        height: 100%;
+    }
+
+    .footer-rights {
+        text-align: center;
+
+        span {
+            display: block;
+            padding: 10px 0;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 250px;
+            height: 1px;
+            background-color: $white;
+            margin: 0 auto;
+        }
+    }
+}

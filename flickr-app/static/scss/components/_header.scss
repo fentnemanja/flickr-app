@@ -10,6 +10,11 @@
 .main-header {
     background-color: $mine-shaft;
     font-weight: $font-weight-medium;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
     .main-navigation {
         display: flex;

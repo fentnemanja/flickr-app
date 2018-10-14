@@ -12,3 +12,27 @@
         color: $white;
     }
 }
+
+.btn-tag {
+    font-weight: $font-weight-medium;
+    text-transform: lowercase;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 4px 10px;
+    color: $mine-shaft;
+    border-radius: $global-border-radius;
+    margin-right: 5px;
+    transition: .3s;
+    display: inline-block;
+
+    @include breakpoint($mobile) {
+        margin-bottom: 10px;
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
