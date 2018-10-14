@@ -1,0 +1,14 @@
+.btn {
+    font-weight: $font-weight-medium;
+    border: none;
+    border-radius: $global-border-radius;
+    display: inline-block;
+    padding: 8px 15px 9px;
+    text-decoration: none;
+    text-align: center;
+
+    &.outlined {
+        border: 1px solid $white;
+        color: $white;
+    }
+}

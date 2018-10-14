@@ -11,6 +11,12 @@
 @import 'helpers/mixins';
 @import 'helpers/mq-set';
 @import 'helpers/icon-font';
+@import 'helpers/helpers';
 
 // =========== General and page specific layouts
 @import 'layout/base';
+
+// =========== Components
+@import 'components/form-elements';
+@import 'components/buttons';
+@import 'components/header';

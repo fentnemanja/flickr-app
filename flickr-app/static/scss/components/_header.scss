@@ -1,0 +1,210 @@
+// ***************** HEADER ***************** //
+// Description:
+// Specific style for the header component
+// -----------------------------------------------
+
+// ==================================================
+// Header navigation
+// ==================================================
+
+.main-header {
+    background-color: $mine-shaft;
+    font-weight: $font-weight-medium;
+
+    .main-navigation {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+
+        a {
+            text-decoration: none;
+            color: $white;
+        }
+    }
+    
+    .header-nav-logo {
+        height: 40px;
+        margin-right: 20px;
+        border-radius: $global-border-radius;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .header-navigation-search {
+        width: 60%;
+
+        @include breakpoint($mobile) {
+            width: 100%;
+            margin-right: 20px;
+        }
+
+        a {
+            color: $dusty-gray;
+            font-size: 18px;
+        }
+
+        .header-search {
+            padding-right: 50px;
+        }
+    }
+
+    .navigation-cta {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        @include breakpoint($mobile) {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 90%;
+            background-color: $mine-shaft;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px 35px;
+            overflow-y: scroll;
+            display: none;
+        }
+    }
+
+    .navigation-items {
+        white-space: nowrap;
+        padding: 0 10px;
+        margin-left: auto;
+        color: $white;
+
+        @include breakpoint($mobile) {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            padding: 0 20px;
+
+            @include breakpoint($mobile) {
+                padding: 0;
+                display: block;
+                font-size: 22px;
+            }
+        }
+
+        .expandable {
+            position: relative;
+            padding-top: 12px;
+            padding-bottom: 12px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 7px 5px 0 5px;
+                border-color: #ffffff transparent transparent transparent;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-left: 8px;
+                right: 0;
+
+                @include breakpoint($mobile) {
+                    top: 25px;
+                    right: 25px;
+                }
+            }
+
+            &:hover {
+                .navigation-item-foldout {
+                    display: block;
+                }
+            } 
+        }
+
+        .navigation-item-foldout {
+            position: absolute;
+            background-color: $mine-shaft;
+            padding: 20px;
+            border-radius: $global-border-radius;
+            right: -100%;
+            display: none;
+            top: 40px;
+
+            @include breakpoint($mobile) {
+                font-size: 18px;
+                position: relative;
+                padding: 0;
+                display: block;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+
+            .foldout-list {
+                margin-bottom: 30px;
+                column-count: 4;
+                column-gap: 30px;
+
+                @include breakpoint($mobile) {
+                    margin-top: 20px;
+                    column-count: auto;
+                    column-gap: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            .item-foldout {
+                @include breakpoint($mobile) {
+                    font-size: 18px;
+                    margin-left: 20px;
+                    font-weight: $font-weight-light;
+                }
+            }
+
+            li {
+                display: list-item;
+                margin-bottom: 15px;
+                break-inside: avoid;
+                padding: 0;
+            }
+
+            .item-foldout-sub-item {
+                font-weight: $font-weight-light;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                margin-left: 5px;
+
+                @include breakpoint($mobile) {
+                    display: none;
+                }
+    
+                a {
+                    color: $dusty-gray;
+                }
+            }
+        }
+    }
+
+    .btn {
+        @include breakpoint($mobile) {
+            margin-top: 23px;
+        }
+    }
+
+    .close-mobile-nav {
+        position: absolute;
+        right: 25px;
+        font-size: 25px;
+    }
+
+    .open-mobile-nav {
+        margin-left: auto;
+        font-size: 25px;
+    }
+}

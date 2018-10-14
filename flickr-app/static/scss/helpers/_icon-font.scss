@@ -25,8 +25,17 @@
 @function font-char($filename) {
 	$char: "";
 
-	@if $filename == trophy {
+	@if $filename == icon-magnifier {
 		$char: "\E001";
+	}
+	@if $filename == icon-menu-horizontal {
+		$char: "\E002";
+	}
+	@if $filename == icon-x {
+		$char: "\E003";
+	}
+	@if $filename == trophy {
+		$char: "\E004";
 	}
 
 	@return $char;
@@ -43,8 +52,16 @@
 	}
 }
 
+.font-icon-magnifier {
+	@include font(icon-magnifier);
+}
+.font-icon-menu-horizontal {
+	@include font(icon-menu-horizontal);
+}
+.font-icon-x {
+	@include font(icon-x);
+}
 .font-trophy {
 	@include font(trophy);
 }
-
-
+

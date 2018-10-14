@@ -28,5 +28,36 @@ $mobile-landscape: 'only screen and (min-device-width: 480px) and (max-device-wi
 // Colors : Names from : http://chir.ag/projects/name-that-color
 // ==================================================
 
-$white					:#fff;
-$black					:#000;
+$white					: #fff;
+$mercury                : #E2E2E2;
+$dusty-gray             : #979797;
+$black					: #000;
+$mid-gray               : #616265;
+$mine-shaft             : #222;
+
+// ==================================================
+// Font Family
+// ==================================================
+$roboto                 : 'Roboto', sans-serif;
+
+// ==================================================
+// Font Weight
+// ==================================================
+
+$font-weight-light      : 300;
+$font-weight-regular    : 400;
+$font-weight-medium     : 500;
+$font-weight-bold       : 700;
+
+// ==================================================
+// Body
+// ==================================================
+$body-color             : $white;
+$body-font-size         : 14px;
+$body-font-family       : $roboto;
+$body-font-color        : $mid-gray;
+
+// ==================================================
+// Border radius
+// ==================================================
+$global-border-radius   : 5px;
