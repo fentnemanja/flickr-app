@@ -29,6 +29,7 @@ $mobile-landscape: 'only screen and (min-device-width: 480px) and (max-device-wi
 // ==================================================
 
 $white					: #fff;
+$wild-sand              : #f4f4f4;
 $mercury                : #E2E2E2;
 $dusty-gray             : #979797;
 $black					: #000;
@@ -53,7 +54,7 @@ $font-weight-bold       : 700;
 // ==================================================
 // Body
 // ==================================================
-$body-color             : $white;
+$body-color             : $wild-sand;
 $body-font-size         : 14px;
 $body-font-family       : $roboto;
 $body-font-color        : $mid-gray;
@@ -62,3 +63,8 @@ $body-font-color        : $mid-gray;
 // Border radius
 // ==================================================
 $global-border-radius   : 5px;
+
+// ==================================================
+// Box shadow
+// ==================================================
+$gallery-box-shadow     : 0 16px 32px 0 rgba(0,0,0,.1);
