@@ -46,14 +46,17 @@
 	@if $filename == icon-menu-horizontal {
 		$char: "\E007";
 	}
-	@if $filename == icon-tag {
+	@if $filename == icon-menu {
 		$char: "\E008";
 	}
-	@if $filename == icon-x {
+	@if $filename == icon-tag {
 		$char: "\E009";
 	}
-	@if $filename == trophy {
+	@if $filename == icon-x {
 		$char: "\E00A";
+	}
+	@if $filename == trophy {
+		$char: "\E00B";
 	}
 
 	@return $char;
@@ -90,6 +93,9 @@
 }
 .font-icon-menu-horizontal {
 	@include font(icon-menu-horizontal);
+}
+.font-icon-menu {
+	@include font(icon-menu);
 }
 .font-icon-tag {
 	@include font(icon-tag);

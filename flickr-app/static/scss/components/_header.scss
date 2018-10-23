@@ -106,22 +106,28 @@
             padding-top: 12px;
             padding-bottom: 12px;
 
-            &:before {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 7px 5px 0 5px;
-                border-color: #ffffff transparent transparent transparent;
-                top: 50%;
-                transform: translateY(-50%);
-                margin-left: 8px;
-                right: 0;
+            @include breakpoint($mobile) {
+                padding-bottom: 18px;
+            }
 
-                @include breakpoint($mobile) {
-                    top: 25px;
-                    right: 25px;
+            & > a {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 5px 4px 0 4px;
+                    border-color: #ffffff transparent transparent transparent;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: -13px;
+    
+                    @include breakpoint($mobile) {
+                        display: none;
+                    }
                 }
             }
 
@@ -142,19 +148,22 @@
             top: 40px;
 
             @include breakpoint($mobile) {
-                font-size: 18px;
-                position: relative;
-                padding: 0;
-                display: block;
-                top: 0;
-                left: 0;
-                right: 0;
+                // font-size: 18px;
+                // position: relative;
+                // padding: 0;
+                // display: block;
+                // top: 0;
+                // left: 0;
+                // right: 0;
+                display: none;
             }
 
             .foldout-list {
-                margin-bottom: 30px;
                 column-count: 4;
                 column-gap: 30px;
+                margin-bottom: 15px;
+                padding-bottom: 25px;
+                border-bottom: 1px solid $dusty-gray;
 
                 @include breakpoint($mobile) {
                     margin-top: 20px;
@@ -179,19 +188,32 @@
                 padding: 0;
             }
 
-            .item-foldout-sub-item {
-                font-weight: $font-weight-light;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                margin-left: 5px;
+            // .item-foldout-sub-item {
+            //     font-weight: $font-weight-light;
+            //     margin-top: 5px;
+            //     margin-bottom: 5px;
+            //     margin-left: 5px;
 
-                @include breakpoint($mobile) {
-                    display: none;
-                }
+            //     @include breakpoint($mobile) {
+            //         display: none;
+            //     }
     
-                a {
-                    color: $dusty-gray;
-                }
+            //     a {
+            //         color: $dusty-gray;
+            //     }
+            // }
+        }
+
+        .all-collections {
+            a {
+                display: flex;
+                font-size: 16px;
+            }
+
+            span {
+                font-size: 15px;
+                display: flex;
+                margin-left: 10px;
             }
         }
     }

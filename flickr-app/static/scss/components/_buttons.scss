@@ -36,3 +36,15 @@
         margin-right: 0;
     }
 }
+
+.btn-icon {
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    color: $dusty-gray;
+
+    span {
+        display: inline-flex;
+        margin-right: 7px;
+    }
+}

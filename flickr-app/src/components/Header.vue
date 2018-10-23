@@ -20,34 +20,15 @@
                         <li class="expandable"><a href="javascript:;">Collections</a>
                             <div class="navigation-item-foldout">
                                 <ul class="foldout-list">
-                                    <li class="item-foldout"><a href="javascript:">Animals</a>
-                                        <ul>
-                                            <li class="item-foldout-sub-item"><a href="javascript:;">Cats</a></li>
-                                            <li class="item-foldout-sub-item"><a href="javascript:;">Dogs</a></li>
-                                        </ul>
+
+                                    <li class="item-foldout" v-for="(c, index) in collections" :key="index">
+                                        <a href="javascript:;">{{c}}</a>
                                     </li>
-                                    <li class="item-foldout"><a href="javascript:">Around the Wordl</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Arts</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Backgrounds</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Beauty</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Business</a>
-                                        <ul>
-                                            <li class="item-foldout-sub-item"><a href="javascript:;">Money</a></li>
-                                            <li class="item-foldout-sub-item"><a href="javascrip:;">Products</a></li>
-                                            <li class="item-foldout-sub-item"><a href="javascript:;">Retail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="item-foldout"><a href="javascript:">Celebrate</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Cinematography</a></li>
-                                    <li class="item-foldout"><a href="javascript:">City</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Education</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Family</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Fashion</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Fitness</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Flowers</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Recreation</a></li>
-                                    <li class="item-foldout"><a href="javascript:">Technology</a></li>
+
                                 </ul>
+                                <div class="all-collections">
+                                    <a href="javascript:;">Explore all collections <span class="font-icon-menu"></span></a>
+                                </div>
                             </div>
                         </li>
                         <li><a href="javascript:;">Explore</a></li>
@@ -68,7 +49,7 @@ export default {
     name: 'Header',
     data() {
         return {
-
+            collections: ['Animals', 'Around the World', 'Arts', 'Backgrounds', 'Beauty', 'Business', 'Celebrate', 'Cinematography', 'Cities', 'Education', 'Family', 'Fashion', 'Fitness', 'Flowers', 'Recreation', 'Technology']
         }
     }
 }
