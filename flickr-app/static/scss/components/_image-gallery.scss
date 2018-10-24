@@ -1,0 +1,108 @@
+.image-gallery {
+
+    .gallery-grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image-tile {
+        background-color: $white;
+        @include rounded();
+        width: 30%;
+        flex: auto;
+        margin: 15px 15px;
+        transition: box-shadow .3s;
+
+        @include breakpoint($mobile) {
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        @include breakpoint($mobile-landscape) {
+            width: 44%;
+            margin: 10px 10px;
+        }
+        
+        &:hover {
+            box-shadow: $gallery-box-shadow;
+        }
+    }
+
+    .image-tile-header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+
+        .author-image {
+            width: 35px;
+            height: 35px;
+            @include rounded(50px);
+            background-color: darksalmon;
+            margin-right: 15px;
+        }
+
+        .author-name {
+            font-weight: $font-weight-medium;
+            color: $mine-shaft;
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .image-date {
+            display: block;
+            font-size: 12px;
+            color: $dusty-gray;
+        }
+    }
+
+    .image-tile-img {
+        height: 400px;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @include breakpoint($mobile) {
+            height: 280px;
+        }
+    }
+
+    .image-tile-info {
+
+        .image-title {
+            font-weight: $font-weight-medium;
+            color: $mine-shaft;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid $mercury;
+
+            h4 {
+                padding: 0 15px;
+            }
+        }
+
+        .image-stats {
+            padding: 15px;
+            font-size: 12px;
+            color: $dusty-gray;
+
+            ul {
+                display: flex;
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-right: 13px;
+
+                &:last-child {
+                    margin-right: 13px;
+                }
+
+                i {
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+}

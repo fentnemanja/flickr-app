@@ -1,0 +1,70 @@
+// ***************** WRAPPERS ***************** //
+// Description:
+// General wrappers for containers, pages and components
+// --------------------------------------------------
+
+
+// ==================================================
+// Containers
+// ==================================================
+$wrap-padding       : 40px;
+$wrap-padding-small : 20px;
+$wrap-max-width     : 1600px;
+
+// ==================================================
+// components
+// ==================================================
+$component-max-width : 1300px;
+
+.layout-wrapper,
+.component-wrapper {
+    padding: 0 $wrap-padding;
+    margin: 0 auto;
+    position: relative;
+
+    @include breakpoint($mobile) {
+        padding: 0 $wrap-padding-small;
+    }
+}
+
+.layout-wrapper {
+    max-width: $wrap-max-width;
+}
+
+.component-wrapper {
+    max-width: $component-max-width;
+}
+
+// =========================================
+// Standard Reset
+// =========================================
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-variant-ligatures: none;
+    text-rendering: optimizeLegibility;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: $body-color;
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    color: $body-font-color;
+    font-weight: $font-weight-regular;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+ul {
+    padding-left: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+}

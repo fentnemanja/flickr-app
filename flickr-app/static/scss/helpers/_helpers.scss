@@ -1,0 +1,46 @@
+.hidden {
+    display: none !important;
+}
+
+.hide-mobile {
+    @include breakpoint($mobile) {
+        display: none !important;
+    }
+}
+
+.hide-tablet {
+    @include breakpoint($above-mobile) {
+        display: none !important;
+    }
+}
+
+.hide-desktop {
+    @include breakpoint($desktop) {
+        display: none !important;
+    }
+}
+
+.hide-below-desktop {
+    @include breakpoint($below-desktop) {
+        display: none !important;
+    }
+}
+
+
+.hide-above-mobile {
+    @include breakpoint($above-mobile) {
+        display: none !important;
+    }
+}
+
+.show-mobile {
+    @include breakpoint($above-mobile) {
+        display: none !important;
+    }
+}
+
+.show-tablet {
+    @include breakpoint($above-tablet-portrait) {
+        display: none !important;
+    }
+}

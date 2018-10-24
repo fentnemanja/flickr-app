@@ -1,0 +1,26 @@
+// ***************** Main scss file ***************** //
+// -----------------------------------------------
+
+
+// =========== Resets and variables
+@import "config/normalize";
+@import "config/variables";
+
+// =========== Helpers and mixins
+@import 'helpers/icon-font';
+@import 'helpers/mixins';
+@import 'helpers/mq-set';
+@import 'helpers/icon-font';
+@import 'helpers/helpers';
+
+// =========== General and page specific layouts
+@import 'layout/base';
+
+// =========== Components
+@import 'components/form-elements';
+@import 'components/buttons';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/hero-banner';
+@import 'components/image-gallery';
+@import 'components/shot-lightbox';

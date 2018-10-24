@@ -1,0 +1,29 @@
+.form-element {
+    position: relative;
+    width: 100%;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    textarea,
+    select {
+        background-color: $white;
+        border-radius: $global-border-radius;
+        appearance: none;
+        outline: none;
+        height: 40px;
+        padding: 15px;
+        width: 100%;
+        border: none;
+    }
+}
+
+.form-element-addon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    right: 20px;
+    color: $black;
+}

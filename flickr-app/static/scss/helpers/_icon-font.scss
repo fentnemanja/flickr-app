@@ -1,0 +1,109 @@
+@font-face {
+	font-family: "svgicons";
+	src: url('../fonts/svgicons.eot');
+	src: url('../fonts/svgicons.eot?#iefix') format('eot'),
+		url('../fonts/svgicons.woff') format('woff'),
+		url('../fonts/svgicons.ttf') format('truetype');
+}
+
+@mixin font-styles {
+	font-family: "svgicons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%font {
+	@include font-styles;
+}
+
+@function font-char($filename) {
+	$char: "";
+
+	@if $filename == icon-calendar {
+		$char: "\E001";
+	}
+	@if $filename == icon-comment {
+		$char: "\E002";
+	}
+	@if $filename == icon-eye {
+		$char: "\E003";
+	}
+	@if $filename == icon-heart-o {
+		$char: "\E004";
+	}
+	@if $filename == icon-heart {
+		$char: "\E005";
+	}
+	@if $filename == icon-magnifier {
+		$char: "\E006";
+	}
+	@if $filename == icon-menu-horizontal {
+		$char: "\E007";
+	}
+	@if $filename == icon-menu {
+		$char: "\E008";
+	}
+	@if $filename == icon-tag {
+		$char: "\E009";
+	}
+	@if $filename == icon-x {
+		$char: "\E00A";
+	}
+	@if $filename == trophy {
+		$char: "\E00B";
+	}
+
+	@return $char;
+}
+
+@mixin font($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %font;
+		} @else {
+			@include font-styles;
+		}
+		content: font-char($filename);
+	}
+}
+
+.font-icon-calendar {
+	@include font(icon-calendar);
+}
+.font-icon-comment {
+	@include font(icon-comment);
+}
+.font-icon-eye {
+	@include font(icon-eye);
+}
+.font-icon-heart-o {
+	@include font(icon-heart-o);
+}
+.font-icon-heart {
+	@include font(icon-heart);
+}
+.font-icon-magnifier {
+	@include font(icon-magnifier);
+}
+.font-icon-menu-horizontal {
+	@include font(icon-menu-horizontal);
+}
+.font-icon-menu {
+	@include font(icon-menu);
+}
+.font-icon-tag {
+	@include font(icon-tag);
+}
+.font-icon-x {
+	@include font(icon-x);
+}
+.font-trophy {
+	@include font(trophy);
+}
+

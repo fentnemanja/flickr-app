@@ -1,0 +1,26 @@
+/*
+ * Set the writing order for mediaqueries
+ *
+ * _variables.scss:
+ * $desktop: 'only screen and (min-width: 1025px)';
+ * $below-desktop: 'only screen and (max-width: 1240px)'; * first shrink point
+ * $above-mobile: 'only screen and (min-width : 768px)';
+ * $below-desktop: 'only screen and (max-width : 1024px)';
+ * $tablet-portrait: 'only screen and (min-width : 768px) and (max-width: 900px)';
+ * $tablet-landscape: 'only screen and (min-width : 901px) and (max-width: 1024px)';
+ * $mobile: 'only screen and (max-width : 767px)';
+ * $print: 'print';
+ *
+ * compass version of MQ will look at first occurence for writing out order, i am using widest first here
+ * -------------------------------------------------------------------------------------------------------------------------
+ */
+
+ @include breakpoint($desktop) { /* media query order selector $desktop */ }
+ @include breakpoint($below-desktop) { /* media query order selector $below-desktop */ }
+ @include breakpoint($tablet-landscape) { /* media query order selector $tablet-landscape */ }
+ @include breakpoint($tablet-portrait) { /* media query order selector $tablet-portrait */ }
+ @include breakpoint($below-tablet-portrait) { /* media query order selector $$below-tablet-portait */ }
+ @include breakpoint($above-mobile) { /* media query order selector $above-mobile */ }
+ @include breakpoint($mobile) { /* media query order selector $mobile */ }
+ @include breakpoint($mobile-portrait) { /* media query order selector $mobile */ }
+ @include breakpoint($mobile-landscape) { /* media query order selector $mobile */ }

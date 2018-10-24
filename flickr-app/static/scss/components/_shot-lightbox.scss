@@ -1,0 +1,169 @@
+.shot-overlay {
+    background: rgba(30,30,30,0.9);
+    top: 0;
+    left: 0;
+    z-index: 997;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: scroll;
+}
+
+.close-shot-lightbox {
+    position: absolute;
+    font-size: 20px;
+    padding: 20px;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+    color: $white;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    max-width: 1000px;
+    width: 100%;
+    transform: translateX(-50%);
+    background-color: $white;
+    border-radius: $global-border-radius;
+    overflow: hidden;
+
+    .shot-header {
+        padding: 30px;
+        background-color: $wild-sand;
+    } 
+
+    .shot-info-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .author-image {
+        width: 50px;
+        height: 50px;
+        background-color: goldenrod;
+        margin-right: 15px;
+        border-radius: 100px;
+    }
+
+    .image-author {
+        color: $blue;
+        text-decoration: none;
+    }
+
+    .shot-title {
+        font-size: 20px;
+    }
+
+    .shot-info {
+        margin-top: 3px;
+        color: $dusty-gray;
+
+        p {
+            display: inline-block;
+        }
+    }
+
+    .shot-header-cta {
+        margin-left: auto;
+    }
+
+    .shot-image {
+        img {
+            height: 500px;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+
+    .photo-description {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $mercury;
+    }
+
+    .shot-footer-wrapper {
+        background-color: $wild-sand;
+        padding: 30px;
+        display: flex;
+
+        .shot-comment-section {
+            flex: 70%;
+            padding-right: 50px;
+        }
+
+        .shot-information-section {
+            flex: 30%;
+
+            li {
+                display: flex;
+                margin-bottom: 10px;
+            }
+
+            .icon {
+                margin-right: 15px;
+                font-size: 17px;
+                margin-top: 3px;
+            }
+
+            .btn-tag {
+                background-color: $white;
+                color: $dusty-gray;
+                margin-bottom: 10px;
+            }
+        }
+
+        .shot-view-stats,
+        .shot-like-stats {
+            align-items: center;
+        }
+
+        .comment {
+            padding: 20px 0;
+            border-bottom: 1px solid $mercury;
+            display: flex;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .user-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 100px;
+            background-color: lightskyblue;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .username {
+            color: $mine-shaft;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: $font-weight-medium;
+        }
+
+        .user-comment {
+            padding: 10px 0;
+        }
+
+        .comment-date {
+            color: $dusty-gray;
+        }
+
+        .comment-textbox {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-element {
+            h3 {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
