@@ -228,10 +228,15 @@
         position: absolute;
         right: 25px;
         font-size: 25px;
+        top: 20px;
     }
 
     .open-mobile-nav {
         margin-left: auto;
         font-size: 25px;
+    }
+
+    .open {
+        display: block;
     }
 }

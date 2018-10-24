@@ -14,7 +14,7 @@
                             <span class="image-date">December 01, 2018</span>
                         </div>
                     </div>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="openLightbox">
                         <div class="image-tile-img" style="background-image: url('https://images.unsplash.com/photo-1539580709660-0505d36fa6e7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=df3e6c039eb1e5e32fef492bf6e3376e&auto=format&fit=crop&w=401&q=80');">
                         </div>
                     </a>
@@ -40,7 +40,7 @@
                             <span class="image-date">October 08, 2018</span>
                         </div>
                     </div>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="openLightbox">
                         <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/1472854/pexels-photo-1472854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
                         </div>
                     </a>
@@ -66,7 +66,7 @@
                             <span class="image-date">July 21, 2018</span>
                         </div>
                     </div>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="openLightbox">
                         <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/1484799/pexels-photo-1484799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
                         </div>
                     </a>
@@ -92,7 +92,7 @@
                             <span class="image-date">April 05, 2018</span>
                         </div>
                     </div>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="openLightbox">
                         <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/14644/pexels-photo-14644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
                         </div>
                     </a>
@@ -118,7 +118,7 @@
                             <span class="image-date">October 08, 2018</span>
                         </div>
                     </div>
-                    <a href="javascript:;">
+                    <a href="javascript:;" @click="openLightbox">
                         <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/1486213/pexels-photo-1486213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
                         </div>
                     </a>
@@ -140,8 +140,8 @@
             </div>
         </div>
 
-        <div class="shot-overlay hidden js-shot-overlay">
-            <a href="javascript:;" class="close-shot-lightbox">
+        <div class="shot-overlay js-shot-overlay" :class="{hidden: isShotLightboxOpen}">
+            <a @click="openLightbox" href="javascript:;" class="close-shot-lightbox">
                 <span class="font-icon-x"></span>
             </a>
             <div class="overlay-content">
@@ -248,7 +248,18 @@ export default {
 
     data() {
         return {
+            isShotLightboxOpen: true
+        }
+    },
 
+    methods: {
+        openLightbox() {
+            this.isShotLightboxOpen = !this.isShotLightboxOpen;
+            if(document.body.classList.contains('overflow-hidden')) {
+                document.body.classList.remove('overflow-hidden');
+            } else {
+                document.body.classList.add('overflow-hidden');
+            }
         }
     }
 }
