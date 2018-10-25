@@ -2,8 +2,6 @@
     <section>
         <div class="image-gallery component-wrapper">
             <div class="gallery-grid">
-
-
                 <div class="image-tile">
                     <div class="image-tile-header">
                         <a href="javascript:;">
