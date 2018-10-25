@@ -4,7 +4,7 @@
             <nav class="main-navigation">
                 <div class="header-nav-logo">
                     <a href="javascript:;">
-                        <img src="../assets/logo.svg" alt="nav-logo">
+                        <!-- <img src="../assets/logo.svg" alt="nav-logo"> -->
                     </a>
                 </div>
                 <div class="header-navigation-search form-element has-addon">
@@ -15,7 +15,7 @@
                     </div>
                     <input placeholder="Search free images" class="header-search" type="text" name="header-search">
                 </div>
-                <div class="navigation-cta">
+                <div class="navigation-cta" :class="{open: isMobileNavOpen}">
                     <ul class="navigation-items">
                         <li class="expandable"><a href="javascript:;">Collections</a>
                             <div class="navigation-item-foldout">
@@ -34,9 +34,9 @@
                         <li><a href="javascript:;">Explore</a></li>
                     </ul>
                     <a href="javascript:;" class="btn outlined">Login</a>
-                    <a class="close-mobile-nav hide-above-mobile" href="javascript:;"><i class="font-icon-x"></i></a>
+                    <a class="close-mobile-nav hide-above-mobile" @click="openMobileNav" href="javascript:;"><i class="font-icon-x"></i></a>
                 </div>
-                <a class="open-mobile-nav hide-above-mobile" href="javascript:;">
+                <a @click="openMobileNav" class="open-mobile-nav hide-above-mobile" href="javascript:;">
                     <i class="font-icon-menu-horizontal"></i>
                 </a>
             </nav>
@@ -49,7 +49,14 @@ export default {
     name: 'Header',
     data() {
         return {
-            collections: ['Animals', 'Around the World', 'Arts', 'Backgrounds', 'Beauty', 'Business', 'Celebrate', 'Cinematography', 'Cities', 'Education', 'Family', 'Fashion', 'Fitness', 'Flowers', 'Recreation', 'Technology']
+            collections: ['Animals', 'Around the World', 'Arts', 'Backgrounds', 'Beauty', 'Business', 'Celebrate', 'Cinematography', 'Cities', 'Education', 'Family', 'Fashion', 'Fitness', 'Flowers', 'Recreation', 'Technology'],
+            isMobileNavOpen: false
+        }
+    },
+
+    methods: {
+        openMobileNav() {
+            this.isMobileNavOpen = !this.isMobileNavOpen;
         }
     }
 }
