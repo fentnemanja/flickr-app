@@ -40,23 +40,26 @@
 	@if $filename == icon-heart {
 		$char: "\E005";
 	}
-	@if $filename == icon-magnifier {
+	@if $filename == icon-long-arrow {
 		$char: "\E006";
 	}
-	@if $filename == icon-menu-horizontal {
+	@if $filename == icon-magnifier {
 		$char: "\E007";
 	}
-	@if $filename == icon-menu {
+	@if $filename == icon-menu-horizontal {
 		$char: "\E008";
 	}
-	@if $filename == icon-tag {
+	@if $filename == icon-menu {
 		$char: "\E009";
 	}
-	@if $filename == icon-x {
+	@if $filename == icon-tag {
 		$char: "\E00A";
 	}
-	@if $filename == trophy {
+	@if $filename == icon-x {
 		$char: "\E00B";
+	}
+	@if $filename == trophy {
+		$char: "\E00C";
 	}
 
 	@return $char;
@@ -87,6 +90,9 @@
 }
 .font-icon-heart {
 	@include font(icon-heart);
+}
+.font-icon-long-arrow {
+	@include font(icon-long-arrow);
 }
 .font-icon-magnifier {
 	@include font(icon-magnifier);
