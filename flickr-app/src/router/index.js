@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Collection from '@/components/Collection'
 import Collections from '@/components/Collections-page'
+import Explore from '@/components/Explore-page'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/collections',
       name: 'Collections-page',
       component: Collections
+    },
+    {
+      path: '/explore',
+      name: 'Explore-page',
+      component: Explore
     }
   ]
 })

@@ -25,41 +25,47 @@
 @function font-char($filename) {
 	$char: "";
 
-	@if $filename == icon-calendar {
+	@if $filename == icon-arrow-left {
 		$char: "\E001";
 	}
-	@if $filename == icon-comment {
+	@if $filename == icon-arrow-right {
 		$char: "\E002";
 	}
-	@if $filename == icon-eye {
+	@if $filename == icon-calendar {
 		$char: "\E003";
 	}
-	@if $filename == icon-heart-o {
+	@if $filename == icon-comment {
 		$char: "\E004";
 	}
-	@if $filename == icon-heart {
+	@if $filename == icon-eye {
 		$char: "\E005";
 	}
-	@if $filename == icon-long-arrow {
+	@if $filename == icon-heart-o {
 		$char: "\E006";
 	}
-	@if $filename == icon-magnifier {
+	@if $filename == icon-heart {
 		$char: "\E007";
 	}
-	@if $filename == icon-menu-horizontal {
+	@if $filename == icon-long-arrow {
 		$char: "\E008";
 	}
-	@if $filename == icon-menu {
+	@if $filename == icon-magnifier {
 		$char: "\E009";
 	}
-	@if $filename == icon-tag {
+	@if $filename == icon-menu-horizontal {
 		$char: "\E00A";
 	}
-	@if $filename == icon-x {
+	@if $filename == icon-menu {
 		$char: "\E00B";
 	}
-	@if $filename == trophy {
+	@if $filename == icon-tag {
 		$char: "\E00C";
+	}
+	@if $filename == icon-x {
+		$char: "\E00D";
+	}
+	@if $filename == trophy {
+		$char: "\E00E";
 	}
 
 	@return $char;
@@ -76,6 +82,12 @@
 	}
 }
 
+.font-icon-arrow-left {
+	@include font(icon-arrow-left);
+}
+.font-icon-arrow-right {
+	@include font(icon-arrow-right);
+}
 .font-icon-calendar {
 	@include font(icon-calendar);
 }
