@@ -2,6 +2,7 @@
     <section>
         <div class="explore-page">
             <CategorySlider/>
+            <FeatureComponent/>
             <InspirationCategory/>
             <SliderComponent/>
         </div>
@@ -12,6 +13,7 @@
 import SliderComponent from '@/components/Slider-component';
 import InspirationCategory from '@/components/Inspiration-category';
 import CategorySlider from '@/components/Category-slider';
+import FeatureComponent from '@/components/Feature-component';
 
 export default {
     name: 'Explore-page',
@@ -19,7 +21,8 @@ export default {
     components: {
         SliderComponent: SliderComponent,
         InspirationCategory: InspirationCategory,
-        CategorySlider: CategorySlider
+        CategorySlider: CategorySlider,
+        FeatureComponent: FeatureComponent
     },
 
     data() {
