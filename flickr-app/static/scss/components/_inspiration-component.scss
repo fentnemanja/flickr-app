@@ -5,20 +5,42 @@
 .inspiration-component {
     background-color: $white;
 
+    .inspiration-component-wrapper {
+        padding: 80px 0;
+
+        @include breakpoint($mobile) {
+            padding: 40px 0;
+        }
+    }
+
     .inspiration-component-content {
         display: flex;
+
+        @include breakpoint($mobile) {
+            flex-direction: column;
+        }
     }
 
     .inspiration-info {
         padding: 0 40px;
         display: flex;
         align-items: center;
+        
+        @include breakpoint($mobile) {
+            padding: 0 20px;
+        }
 
         span {
             font-weight: $font-weight-bold;
+            color: $green;
             font-size: 70px;
             opacity: .2;
             letter-spacing: 2px;
+
+            @include breakpoint($mobile) {
+                display: block;
+                text-align: center;
+            }
         }
 
         h2 {
@@ -35,10 +57,21 @@
 
     .inspiration-info-wrapper {
         padding-right: 100px;
+
+        @include breakpoint($mobile) {
+            padding-right: 0;
+            padding-bottom: 30px;
+            text-align: center;
+
+            .round-btn  {
+                display: block;
+            }
+        }
     }
 
     .inspiration-slider {
-        width: 650px;
+        max-width: 650px;
+        width: 100%;
         position: relative;
 
         .slick-slide {
@@ -55,7 +88,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            padding: 40px;
+            padding: 15px;
             font-size: 25px;
         }
 
@@ -78,6 +111,11 @@
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
+
+        @include breakpoint($mobile) {
+            width: 250px;
+            height: 350px;
+        }
 
         &:before {
             content: '';

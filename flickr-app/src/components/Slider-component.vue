@@ -7,7 +7,7 @@
                         <span>Explore</span>
                         <h2>Top cities to visit</h2>
                         <p>Our Scandinavian roots inspire our philosophy: classic shoe forms refined and made with exceptional quality. Explore more about our inspiration, innovation & old-world craftsmanship.</p>
-                        <a href="javascript:;" class="btn">Explore all</a>
+                        <a href="javascript:;" class="round-btn green">Explore all</a>
                     </div>
                 </div>
                 <div class="inspiration-slider">
@@ -45,7 +45,6 @@
                         </a>
                         <a class="arrow-next font-icon-arrow-right js-insp-slider-next" href="javascript:;">
                         </a>
-                        
                     </div>
                 </div>
             </div>
@@ -55,7 +54,6 @@
 
 <script>
 import Slick from 'vue-slick'
-
 
 export default {
     name: 'Slider-component',

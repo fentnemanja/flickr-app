@@ -37,35 +37,38 @@
 	@if $filename == icon-comment {
 		$char: "\E004";
 	}
-	@if $filename == icon-eye {
+	@if $filename == icon-double-arrow {
 		$char: "\E005";
 	}
-	@if $filename == icon-heart-o {
+	@if $filename == icon-eye {
 		$char: "\E006";
 	}
-	@if $filename == icon-heart {
+	@if $filename == icon-heart-o {
 		$char: "\E007";
 	}
-	@if $filename == icon-long-arrow {
+	@if $filename == icon-heart {
 		$char: "\E008";
 	}
-	@if $filename == icon-magnifier {
+	@if $filename == icon-long-arrow {
 		$char: "\E009";
 	}
-	@if $filename == icon-menu-horizontal {
+	@if $filename == icon-magnifier {
 		$char: "\E00A";
 	}
-	@if $filename == icon-menu {
+	@if $filename == icon-menu-horizontal {
 		$char: "\E00B";
 	}
-	@if $filename == icon-tag {
+	@if $filename == icon-menu {
 		$char: "\E00C";
 	}
-	@if $filename == icon-x {
+	@if $filename == icon-tag {
 		$char: "\E00D";
 	}
-	@if $filename == trophy {
+	@if $filename == icon-x {
 		$char: "\E00E";
+	}
+	@if $filename == trophy {
+		$char: "\E00F";
 	}
 
 	@return $char;
@@ -93,6 +96,9 @@
 }
 .font-icon-comment {
 	@include font(icon-comment);
+}
+.font-icon-double-arrow {
+	@include font(icon-double-arrow);
 }
 .font-icon-eye {
 	@include font(icon-eye);
