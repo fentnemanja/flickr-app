@@ -17,7 +17,7 @@
                 </div>
                 <div class="navigation-cta" :class="{open: isMobileNavOpen}">
                     <ul class="navigation-items">
-                        <li class="expandable"><a href="javascript:;">Collections</a>
+                        <li class="expandable"><router-link :to="{ name: 'Collections' }">Collections</router-link>
                             <div class="navigation-item-foldout">
                                 <ul class="foldout-list">
 
@@ -27,11 +27,11 @@
 
                                 </ul>
                                 <div class="all-collections">
-                                    <a href="javascript:;">Explore all collections <span class="font-icon-menu"></span></a>
+                                    <router-link :to="{ name: 'Collections' }">Explore all collections <span class="font-icon-menu"></span></router-link>
                                 </div>
                             </div>
                         </li>
-                        <li><a href="javascript:;">Explore</a></li>
+                        <li><router-link :to="{ name: 'Explore' }">Explore</router-link></li>
                     </ul>
                     <a href="javascript:;" class="btn outlined">Login</a>
                     <a class="close-mobile-nav hide-above-mobile" @click="openMobileNav" href="javascript:;"><i class="font-icon-x"></i></a>

@@ -10,7 +10,7 @@
                 </div>
                 <div class="category-tile-wrapper">
                     <div class="category-tile-row">
-                        <div class="category-tile double">
+                        <div class="category-tile double hide-mobile">
                             <a href="javascript:;">
                                 <div class="tile-image" style="background-image: url('https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')"></div>
                                 <div class="tile-image-detail">
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="category-tile-row">
-                        <div class="category-tile">
+                        <div class="category-tile hide-mobile">
                             <a href="javascript:;">
                                 <div class="tile-image" style="background-image: url('https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')"></div>
                                 <div class="tile-image-detail">
@@ -52,7 +52,7 @@
                             </a>
                         </div>
 
-                        <div class="category-tile">
+                        <div class="category-tile hide-mobile">
                             <a href="javascript:;">
                                 <div class="tile-image" style="background-image: url('https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')"></div>
                                 <div class="tile-image-detail">
@@ -83,19 +83,9 @@
                             </a>
                         </div>
 
-                        <div class="category-tile">
+                        <div class="category-tile double hide-mobile">
                             <a href="javascript:;">
                                 <div class="tile-image" style="background-image: url('https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')"></div>
-                                <div class="tile-image-detail">
-                                    <h3 class="tile-title">Title</h3>
-                                    <span class="tile-description">description</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="category-tile">
-                            <a href="javascript:;">
-                                <div class="tile-image" style="background-image: url('https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260')"></div>
                                 <div class="tile-image-detail">
                                     <h3 class="tile-title">Title</h3>
                                     <span class="tile-description">description</span>

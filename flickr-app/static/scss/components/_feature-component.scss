@@ -1,6 +1,6 @@
 .feature-section {
     background-color: $white;
-    padding-top: 200px;
+    padding-top: 230px;
     padding-bottom: 100px;
 }
 
@@ -8,6 +8,11 @@
 
     .feature-wrapper {
         display: flex;
+
+        @include breakpoint($mobile) {
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
     }
 
     .image-column {

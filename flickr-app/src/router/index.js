@@ -21,12 +21,12 @@ export default new Router({
     },
     {
       path: '/collections',
-      name: 'Collections-page',
+      name: 'Collections',
       component: Collections
     },
     {
       path: '/explore',
-      name: 'Explore-page',
+      name: 'Explore',
       component: Explore
     }
   ]
