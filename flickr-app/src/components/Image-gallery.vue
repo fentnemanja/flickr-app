@@ -1,5 +1,24 @@
 <template>
     <section>
+        <h1>{{ title }}</h1>
+        <ul>
+            <li v-for="(link, index) in links" v-bind:key="index">
+                {{ link }}
+            </li>
+        </ul>
+
+        <div>
+            {{info}}
+        </div>
+
+        <ul>
+            <li v-for="(post, index) in posts" v-bind:key="index">
+                
+                <p>{{post.photo}}</p>
+            </li>
+        </ul>
+
+        <h1>There are currently {{ countLinks }} links</h1>
         <div class="image-gallery component-wrapper">
             <div class="gallery-grid">
                 <div class="image-tile">
@@ -241,14 +260,52 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import axios from 'axios'
+import FlickrApi from '@/services/api/flickr'
+
 export default {
     name: 'Image-gallery',
 
+    computed: {
+        ...mapState([
+            'title',
+            'links',
+            'posts'
+        ]),
+
+        ...mapGetters([
+            'countLinks'
+        ])
+    },
+
     data() {
         return {
-            isShotLightboxOpen: true
+            isShotLightboxOpen: true,
+            info: null,
         }
     },
+
+    created() {
+        // this.$store.dispatch('GET_RECENT_PHOTOS', p, pp)
+        this.$store.dispatch('GET_RECENT_PHOTOS', {
+            p: 1,
+            perPage: 10
+        });
+    },   
+
+    // created() {
+    //     FlickrApi.getRecentPhotos(3, 10).then(posts => {
+    //         this.posts = posts
+    //     });
+    // },
+
+//     mounted () {
+//     axios
+//       .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+//       .then(response => (this.info = response))
+//   },
 
     methods: {
         openLightbox() {
