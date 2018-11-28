@@ -1,5 +1,11 @@
 <template>
     <section>
+
+        <ul v-for="(post, index) in test" :key="index">
+            <p>{{post}}</p>
+        </ul>
+
+
         <div class="image-gallery component-wrapper">
             <div class="gallery-grid">
                 <div class="image-tile">
@@ -241,12 +247,17 @@
 </template>
 
 <script>
+import axios from 'axios'
+import FlickrApi from '@/services/api/flickr'
+
 export default {
     name: 'Image-gallery',
 
     data() {
         return {
-            isShotLightboxOpen: true
+            isShotLightboxOpen: true,
+            posts: null,
+            test: null,
         }
     },
 
@@ -259,6 +270,21 @@ export default {
                 document.body.classList.add('overflow-hidden');
             }
         }
+    },
+
+    created() {
+        FlickrApi.getRecentPhotos(1, 10)
+        .then(posts => {
+            this.posts = posts
+        console.log(this.posts);
+        this.test = posts.photos.photo
+
+        console.log(this.test + 'nemanja');
+        
+
+        });
+
+        
     }
 }
 </script>
