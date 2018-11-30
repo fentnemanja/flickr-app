@@ -1,94 +1,26 @@
 <template>
     <section>
 
-        <ul v-for="(post, index) in test" :key="index">
-            <p>{{post}}</p>
+        <!-- <ul v-for="(post, index) in test" :key="index"> -->
+            <!-- <p>{{post}}</p> -->
+
+            <!-- <img :src="'http://farm'+post.farm+'.staticflickr.com/'+post.server+'/'+post.id+'_'+post.secret+'.jpg'" alt=""> -->
+
+            <!-- <p>http://farm{{post.farm}}.staticflickr.com/{{post.server}}/{{post.id}}_{{post.secret}}.jpg</p> -->
+        <!-- </ul> -->
+
+        <ul>
+            <li v-for="(photo, index) in recentPhotos" :key="index">
+
+                <p>{{photo}}</p>
+            </li>
         </ul>
 
+        <a href="javascript:;" @click="loadMorePhotos(page++)">Load more photos</a>
 
         <div class="image-gallery component-wrapper">
             <div class="gallery-grid">
-                <div class="image-tile">
-                    <div class="image-tile-header">
-                        <a href="javascript:;">
-                            <div class="author-image"></div>
-                        </a>
-                        <div class="image-tile-header__info">
-                            <span class="author-name">Nemanja Fent</span>
-                            <span class="image-date">December 01, 2018</span>
-                        </div>
-                    </div>
-                    <a href="javascript:;" @click="openLightbox">
-                        <div class="image-tile-img" style="background-image: url('https://images.unsplash.com/photo-1539580709660-0505d36fa6e7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=df3e6c039eb1e5e32fef492bf6e3376e&auto=format&fit=crop&w=401&q=80');">
-                        </div>
-                    </a>
-                    <div class="image-tile-info">
-                        <div class="image-title">
-                            <h4>Flexible image</h4>
-                        </div>
-                        <div class="image-stats">
-                            <ul>
-                                <li><i class="font-icon-heart"></i><span>46</span></li>
-                                <li><i class="font-icon-comment"></i><span>12</span></li>
-                                <li><i class="font-icon-eye"></i><span>134k</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="image-tile">
-                    <div class="image-tile-header">
-                        <div class="author-image"></div>
-                        <div class="image-tile-header__info">
-                            <span class="author-name">Nemanja Fent</span>
-                            <span class="image-date">October 08, 2018</span>
-                        </div>
-                    </div>
-                    <a href="javascript:;" @click="openLightbox">
-                        <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/1472854/pexels-photo-1472854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
-                        </div>
-                    </a>
-                    <div class="image-tile-info">
-                        <div class="image-title">
-                            <h4>Flexible image</h4>
-                        </div>
-                        <div class="image-stats">
-                            <ul>
-                                <li><i class="font-icon-heart"></i><span>46</span></li>
-                                <li><i class="font-icon-comment"></i><span>12</span></li>
-                                <li><i class="font-icon-eye"></i><span>134k</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="image-tile">
-                    <div class="image-tile-header">
-                        <div class="author-image"></div>
-                        <div class="image-tile-header__info">
-                            <span class="author-name">Nemanja Fent</span>
-                            <span class="image-date">July 21, 2018</span>
-                        </div>
-                    </div>
-                    <a href="javascript:;" @click="openLightbox">
-                        <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/1484799/pexels-photo-1484799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
-                        </div>
-                    </a>
-                    <div class="image-tile-info">
-                        <div class="image-title">
-                            <h4>Flexible image</h4>
-                        </div>
-                        <div class="image-stats">
-                            <ul>
-                                <li><i class="font-icon-heart"></i><span>46</span></li>
-                                <li><i class="font-icon-comment"></i><span>12</span></li>
-                                <li><i class="font-icon-eye"></i><span>134k</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="image-tile">
+                <div class="image-tile" v-for="(photo, index) in recentPhotos" :key="index">
                     <div class="image-tile-header">
                         <div class="author-image"></div>
                         <div class="image-tile-header__info">
@@ -96,13 +28,13 @@
                             <span class="image-date">April 05, 2018</span>
                         </div>
                     </div>
-                    <a href="javascript:;" @click="openLightbox">
-                        <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/14644/pexels-photo-14644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+                    <a href="javascript:;" @click="openLightbox(photo.farm, photo.server, photo.id, photo.secret)">
+                        <div class="image-tile-img" :style="{backgroundImage: 'url('+'http://farm'+photo.farm+'.staticflickr.com/'+photo.server+'/'+photo.id+'_'+photo.secret+'.jpg'+')'}">
                         </div>
                     </a>
                     <div class="image-tile-info">
                         <div class="image-title">
-                            <h4>Flexible image</h4>
+                            <h4>{{photo.title}}</h4>
                         </div>
                         <div class="image-stats">
                             <ul>
@@ -113,34 +45,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="image-tile">
-                    <div class="image-tile-header">
-                        <div class="author-image"></div>
-                        <div class="image-tile-header__info">
-                            <span class="author-name">Nemanja Fent</span>
-                            <span class="image-date">October 08, 2018</span>
-                        </div>
-                    </div>
-                    <a href="javascript:;" @click="openLightbox">
-                        <div class="image-tile-img" style="background-image: url('https://images.pexels.com/photos/1486213/pexels-photo-1486213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
-                        </div>
-                    </a>
-                    <div class="image-tile-info">
-                        <div class="image-title">
-                            <h4>Flexible image</h4>
-                        </div>
-                        <div class="image-stats">
-                            <ul>
-                                <li><i class="font-icon-heart"></i><span>46</span></li>
-                                <li><i class="font-icon-comment"></i><span>12</span></li>
-                                <li><i class="font-icon-eye"></i><span>134k</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
         </div>
 
@@ -170,7 +74,8 @@
                     </div>
                 </div>
                 <div class="shot-image">
-                    <img src="https://images.pexels.com/photos/1472854/pexels-photo-1472854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+                    <img :src="'http://farm'+this.lightboxPhoto.farm+'.staticflickr.com/'+this.lightboxPhoto.server+'/'+this.lightboxPhoto.id+'_'+this.lightboxPhoto.secret+'.jpg'" alt="">
+                    <!-- <img src="https://images.pexels.com/photos/1472854/pexels-photo-1472854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"> -->
                     <!-- <img src="https://images.pexels.com/photos/1520903/pexels-photo-1520903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"> -->
                 </div>
                 <div class="shot-footer-wrapper">
@@ -257,34 +162,52 @@ export default {
         return {
             isShotLightboxOpen: true,
             posts: null,
-            test: null,
+            recentPhotos: null,
+            lightboxPhoto: [],
+            page: 1,
         }
     },
 
     methods: {
-        openLightbox() {
+        openLightbox(farm, server, id, secret) {
+            this.lightboxPhoto = {farm:farm, server:server, id:id, secret:secret};
+            
             this.isShotLightboxOpen = !this.isShotLightboxOpen;
             if(document.body.classList.contains('overflow-hidden')) {
                 document.body.classList.remove('overflow-hidden');
             } else {
                 document.body.classList.add('overflow-hidden');
             }
+        },
+
+        loadMorePhotos(page) {
+            // console.log(this.page);
+
+            // console.log(typeof[this.posts]);
+
+            // console.log(this.posts);
+
+            FlickrApi.getRecentPhotos(this.page, 10).then(response => {
+                var photoArray = response.photos.photo;
+                photoArray.forEach(element => {
+                    this.recentPhotos.push(element);
+                });
+
+                // this.test.push(posts.photos.photo);
+                console.log('posle update-a');
+                console.log(this.recentPhotos);
+            })
+            
         }
     },
 
     created() {
         FlickrApi.getRecentPhotos(1, 10)
-        .then(posts => {
-            this.posts = posts
+        .then(response => {
+            this.posts = response
         console.log(this.posts);
-        this.test = posts.photos.photo
-
-        console.log(this.test + 'nemanja');
-        
-
+            this.recentPhotos = response.photos.photo
         });
-
-        
     }
 }
 </script>
