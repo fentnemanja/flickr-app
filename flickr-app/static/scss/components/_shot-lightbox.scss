@@ -55,9 +55,12 @@
     .author-image {
         width: 50px;
         height: 50px;
-        background-color: goldenrod;
+        background-color: gray;
         margin-right: 15px;
         border-radius: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .image-author {
@@ -103,8 +106,13 @@
 
     .photo-description {
         padding-bottom: 20px;
-        margin-bottom: 20px;
+        margin: 15px 0;
         border-bottom: 1px solid $mercury;
+        line-height: 23px;
+
+        a {
+            color: $blue;
+        }
 
         @include breakpoint($mobile) {
             font-size: 16px;
@@ -161,9 +169,19 @@
             padding: 20px 0;
             border-bottom: 1px solid $mercury;
             display: flex;
+            flex-direction: column;
 
             &:last-child {
                 border-bottom: none;
+            }
+
+            .user-info {
+                display: flex;
+                align-items: center;
+            }
+
+            .comment-info {
+                margin-left: 40px;
             }
         }
 
@@ -171,10 +189,13 @@
             width: 30px;
             height: 30px;
             border-radius: 100px;
-            background-color: lightskyblue;
+            background-color: gray;
             margin-right: 10px;
             display: inline-block;
             flex-shrink: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .username {
@@ -186,6 +207,15 @@
 
         .user-comment {
             padding: 10px 0;
+            line-height: 23px;
+            
+            a {
+                color: $blue;
+                img {
+                    display: block;
+                    margin: 15px 0;
+                }
+            }
 
             @include breakpoint($mobile) {
                 line-height: 20px;

@@ -5,6 +5,12 @@
         flex-wrap: wrap;
     }
 
+    .load-more {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+    }
+
     .image-tile {
         background-color: $white;
         @include rounded();
@@ -37,8 +43,11 @@
             width: 35px;
             height: 35px;
             @include rounded(50px);
-            background-color: darksalmon;
+            background-color: gray;
             margin-right: 15px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .author-name {
