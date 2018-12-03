@@ -75,5 +75,26 @@ export default {
         return axios.get(url).then(response => {
             return response.data
         })
+    },
+
+    /*
+    * search
+    * Return a list of photos matching some criteria
+    * Arguments:
+    *    - photo_id (the id of the photo to get information for)
+    * 
+    */
+
+    normalPhotoSearch(text, page, perPage) {
+        var convertedText = text.replace(/\s+/g, '+');
+        var method = 'flickr.photos.search'
+        var url = baseUrl+method+`&`+`api_key=`+apiKey+`&text=`+convertedText+`&`+`per_page=`+perPage+`&page=`+page+`&format=json&nojsoncallback=1`;
+
+        return axios.get(url).then(response => {
+            return response.data
+        });
+
+        console.log(url);
+        
     }
 }

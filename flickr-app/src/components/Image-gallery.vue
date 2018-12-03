@@ -162,7 +162,7 @@ export default {
     data() {
         return {
             isShotLightboxOpen: true,
-            recentPhotos: [],
+            // recentPhotos: [],
             lightboxPhoto: {
                 description: {
                     _content: ''
@@ -197,7 +197,7 @@ export default {
                 this.likes = response.photo.total;
             })
 
-            FlickrApi.getPhotoComments(46120070001).then(response => {
+            FlickrApi.getPhotoComments(photo.id).then(response => {
                 var comments = response.comments.comment;
 
                 if(comments == true) {
@@ -239,17 +239,19 @@ export default {
         }
     },
 
+    props: ['recentPhotos'],
+
     created() {
         if(this.$route.path == '/') {
-            FlickrApi.getRecentPhotos(1, 10)
-            .then(response => {
-                var nemanja = response.photos.photo;
-                nemanja.forEach(element => {
-                    FlickrApi.getPhotoInfo(element.id).then(response => {
-                    this.recentPhotos.push(response.photo);
-                    });
-                });
-            });
+            // FlickrApi.getRecentPhotos(1, 10)
+            // .then(response => {
+            //     var nemanja = response.photos.photo;
+            //     nemanja.forEach(element => {
+            //         FlickrApi.getPhotoInfo(element.id).then(response => {
+            //         this.recentPhotos.push(response.photo);
+            //         });
+            //     });
+            // });
         }
     }
 }

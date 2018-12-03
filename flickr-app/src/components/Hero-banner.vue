@@ -6,7 +6,7 @@
                 <span class="hero-heading-span">Gifted by the world’s most generous community of photographers.</span></h1>
                 <div class="form-element has-addon hero-banner-search">
                     <div class="form-element-addon">
-                        <a href="javascript:;">
+                        <a href="javascript:;" @click="test" >
                             <i class="font-icon-magnifier"></i>
                         </a>
                     </div>
@@ -28,13 +28,35 @@
 </template>
 
 <script>
+import axios from 'axios'
+import router from '../router'
+import FlickrApi from '@/services/api/flickr'
+
 export default {
     name: 'Hero-banner',
     data() {
         return {
-
+            recentPhotos: [],
         }
-    }
+    },
+
+    methods: {
+        test() {
+            FlickrApi.normalPhotoSearch('green apple', 1, 17).then(response => {
+                var photos = response.photos.photo;
+                photos.forEach(element => {
+                    FlickrApi.getPhotoInfo(element.id).then(response => {
+                        this.recentPhotos.push(response.photo);
+                    });
+                });
+                console.log(response.photos.photo);
+                router.push({name: 'Collections'});
+            });
+        }
+
+        
+    },
+
 }
 </script>
 
