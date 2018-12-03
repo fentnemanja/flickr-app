@@ -19,7 +19,7 @@
     .inspiration-component-content {
         display: flex;
 
-        @include breakpoint($mobile) {
+        @include breakpoint($below-desktop) {
             flex-direction: column;
         }
     }
@@ -61,7 +61,7 @@
     .inspiration-info-wrapper {
         padding-right: 100px;
 
-        @include breakpoint($mobile) {
+        @include breakpoint($below-desktop) {
             padding-right: 0;
             padding-bottom: 30px;
             text-align: center;
@@ -76,6 +76,10 @@
         max-width: 650px;
         width: 100%;
         position: relative;
+
+        @include breakpoint($below-desktop) {
+            max-width: 100%;
+        }
 
         .slick-slide {
             margin-right: 20px;

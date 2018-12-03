@@ -99,9 +99,18 @@
         flex-direction: column;
         justify-content: space-between;
 
+        @include breakpoint($mobile) {
+            text-align: center;
+        }
+
         q {
             font-weight: $font-weight-bold;
             font-size: 30px;
+            letter-spacing: 1px;
+        }
+
+        q + span {
+            padding-top: 20px;
         }
     }
 }

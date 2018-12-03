@@ -17,8 +17,10 @@
             </li>
         </ul>
  -->
-
         <div class="image-gallery component-wrapper">
+            <div class="title">
+                <h2>Recent photos</h2>
+            </div>
             <div class="gallery-grid">
                 <div class="image-tile" v-for="(photo, index) in recentPhotos" :key="index">
                     <div class="image-tile-header">
@@ -160,7 +162,6 @@ export default {
     data() {
         return {
             isShotLightboxOpen: true,
-            posts: null,
             recentPhotos: [],
             lightboxPhoto: {
                 description: {
@@ -181,8 +182,6 @@ export default {
                 }
             },
             page: 1,
-            recentUsernameRaw: [],
-            photoInfo: [],
             likes: null,
             photoComments: null,
             displayLightbox: false,
@@ -227,28 +226,31 @@ export default {
         },
 
         loadMorePhotos(page) {
-            FlickrApi.getRecentPhotos(this.page, 10).then(response => {
-                var photoArray = response.photos.photo;
-                photoArray.forEach(element => {
+            if(this.$route.path == '/') {
+                FlickrApi.getRecentPhotos(this.page, 10).then(response => {
+                    var photoArray = response.photos.photo;
+                    photoArray.forEach(element => {
+                        FlickrApi.getPhotoInfo(element.id).then(response => {
+                        this.recentPhotos.push(response.photo);
+                        });
+                    });
+                });
+            }
+        }
+    },
+
+    created() {
+        if(this.$route.path == '/') {
+            FlickrApi.getRecentPhotos(1, 10)
+            .then(response => {
+                var nemanja = response.photos.photo;
+                nemanja.forEach(element => {
                     FlickrApi.getPhotoInfo(element.id).then(response => {
                     this.recentPhotos.push(response.photo);
                     });
                 });
             });
         }
-    },
-
-    created() {
-        FlickrApi.getRecentPhotos(1, 10)
-        .then(response => {
-            this.posts = response
-            var nemanja = response.photos.photo;
-            nemanja.forEach(element => {
-                FlickrApi.getPhotoInfo(element.id).then(response => {
-                this.recentPhotos.push(response.photo);
-                });
-            });
-        });
     }
 }
 </script>

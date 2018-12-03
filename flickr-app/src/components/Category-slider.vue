@@ -85,6 +85,7 @@ export default {
             slickOptions: {
                 slidesToShow: 5,
                 variableWidth: true,
+                swipeToSlide: true,
                 prevArrow: document.getElementsByClassName('js-category-slider-left'),
                 nextArrow: document.getElementsByClassName('js-category-slider-right')
             }

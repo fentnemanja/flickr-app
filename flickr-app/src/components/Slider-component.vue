@@ -67,6 +67,7 @@ export default {
             slickOptions: {
                 slidesToShow: 3,
                 variableWidth: true,
+                swipeToSlide: true,
                 prevArrow: document.getElementsByClassName('js-insp-slider-prev'),
                 nextArrow: document.getElementsByClassName('js-insp-slider-next'),
             }
