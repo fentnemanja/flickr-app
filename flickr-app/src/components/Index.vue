@@ -2,12 +2,13 @@
 		<div>
 			<!-- <h2>Main content will be here</h2> -->
       <HeroBanner />
-      <ImageGallery :recentPhotos="recentPhotos"></ImageGallery>
+      <ImageGallery></ImageGallery>
 		</div>
 </template>
 
 <script>
 import axios from 'axios'
+import {serverBus} from '../main'
 import FlickrApi from '@/services/api/flickr'
 import HeroBanner from '@/components/Hero-banner';
 import ImageGallery from '@/components/Image-gallery';
@@ -36,6 +37,14 @@ export default {
               });
           });
       });
+
+      setTimeout(() => {
+        serverBus.$emit('test', this.recentPhotos);
+        console.log();
+        
+      }, 500);
+
+
   }
 
 

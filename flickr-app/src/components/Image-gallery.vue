@@ -154,6 +154,7 @@
 
 <script>
 import axios from 'axios'
+import {serverBus} from '../main'
 import FlickrApi from '@/services/api/flickr'
 
 export default {
@@ -185,6 +186,8 @@ export default {
             likes: null,
             photoComments: null,
             displayLightbox: false,
+            recentPhotos: [],
+            searchMode: '',
         }
     },
 
@@ -236,10 +239,18 @@ export default {
                     });
                 });
             }
+
+            if(this.searchMode == 'search') {
+                console.log('klasicna pretraga');
+                
+            } else {
+                console.log('pretraga po tagu');
+                
+            }
         }
     },
 
-    props: ['recentPhotos'],
+    // props: ['testPhotos'],
 
     created() {
         if(this.$route.path == '/') {
@@ -253,6 +264,17 @@ export default {
             //     });
             // });
         }
+
+        serverBus.$on('test', (recentPhotos) => {
+            this.recentPhotos = recentPhotos;
+            console.log('ovo je server');
+        });
+        
+
+        console.log('posle ser vusa');
+        console.log(this.recentPhotos);
+        
+        
     }
 }
 </script>

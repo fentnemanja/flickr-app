@@ -6,11 +6,12 @@
                 <span class="hero-heading-span">Gifted by the world’s most generous community of photographers.</span></h1>
                 <div class="form-element has-addon hero-banner-search">
                     <div class="form-element-addon">
-                        <a href="javascript:;" @click="test" >
+                        <a href="javascript:;" @click="searchPhoto" >
                             <i class="font-icon-magnifier"></i>
                         </a>
                     </div>
-                    <input placeholder="Search free images" type="text" name="hero-search" class="hero-search">
+                    <input v-model="searchBar" placeholder="Search free images" type="text" name="hero-search" class="hero-search">
+                    <p>{{searchBar}}</p>
                 </div>
                 <div class="popular-categories">
                     <span>Popular categories:</span>
@@ -29,6 +30,7 @@
 
 <script>
 import axios from 'axios'
+import {serverBus} from '../main'
 import router from '../router'
 import FlickrApi from '@/services/api/flickr'
 
@@ -37,24 +39,31 @@ export default {
     data() {
         return {
             recentPhotos: [],
+            searchBar: '',
         }
     },
 
     methods: {
-        test() {
-            FlickrApi.normalPhotoSearch('green apple', 1, 17).then(response => {
+        searchPhoto() {
+            FlickrApi.normalPhotoSearch(this.searchBar, 1, 17).then(response => {
                 var photos = response.photos.photo;
                 photos.forEach(element => {
                     FlickrApi.getPhotoInfo(element.id).then(response => {
                         this.recentPhotos.push(response.photo);
+                        serverBus.$emit('test', this.recentPhotos);
                     });
                 });
-                console.log(response.photos.photo);
-                router.push({name: 'Collections'});
-            });
-        }
 
-        
+                
+            });
+
+            
+                console.log('slike iz testa');
+                console.log(this.recentPhotos);
+                
+                
+                router.push({path: 'collection'});
+        }
     },
 
 }
