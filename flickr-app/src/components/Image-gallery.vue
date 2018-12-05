@@ -203,10 +203,9 @@ export default {
             FlickrApi.getPhotoComments(photo.id).then(response => {
                 var comments = response.comments.comment;
 
-                if(comments == true) {
+                if(comments) {
                     this.photoComments = comments.slice(0, 5);
                 } else {
-                    console.log('nema komentara');
                     this.photoComments = [];
                 }
             });
@@ -229,7 +228,7 @@ export default {
         },
 
         loadMorePhotos(page) {
-            if(this.$route.path == '/') {
+            if(this.searchMode == 'recentSearch') {
                 FlickrApi.getRecentPhotos(this.page, 10).then(response => {
                     var photoArray = response.photos.photo;
                     photoArray.forEach(element => {
@@ -238,14 +237,10 @@ export default {
                         });
                     });
                 });
-            }
-
-            if(this.searchMode == 'search') {
+            } else if(this.searchMode == 'search') {
                 console.log('klasicna pretraga');
-                
-            } else {
+            } else if(this.searchMode == 'tagSearch') {
                 console.log('pretraga po tagu');
-                
             }
         }
     },
@@ -267,14 +262,11 @@ export default {
 
         serverBus.$on('test', (recentPhotos) => {
             this.recentPhotos = recentPhotos;
-            console.log('ovo je server');
         });
-        
 
-        console.log('posle ser vusa');
-        console.log(this.recentPhotos);
-        
-        
+        serverBus.$on('searchMode', (searchMode) => {
+            this.searchMode = searchMode;
+        })
     }
 }
 </script>

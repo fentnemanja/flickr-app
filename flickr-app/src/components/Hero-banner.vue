@@ -6,21 +6,18 @@
                 <span class="hero-heading-span">Gifted by the world’s most generous community of photographers.</span></h1>
                 <div class="form-element has-addon hero-banner-search">
                     <div class="form-element-addon">
-                        <a href="javascript:;" @click="searchPhoto" >
+                        <a href="javascript:;" @click="searchPhoto('search', searchBar)" >
                             <i class="font-icon-magnifier"></i>
                         </a>
                     </div>
-                    <input v-model="searchBar" placeholder="Search free images" type="text" name="hero-search" class="hero-search">
+                    <input @keyup.enter="searchPhoto('search', searchBar)" v-model="searchBar" placeholder="Search free images" type="text" name="hero-search" class="hero-search">
                     <p>{{searchBar}}</p>
                 </div>
                 <div class="popular-categories">
                     <span>Popular categories:</span>
                     <div class="tags-wrapper">
-                        <a class="btn-tag" href="javascript:;">Technology</a>
-                        <a class="btn-tag" href="javascript:;">Nature</a>
-                        <a class="btn-tag" href="javascript:;">Apple</a>
-                        <a class="btn-tag" href="javascript:;">Dogs</a>
-                        <a class="btn-tag" href="javascript:;">Ikea</a>
+                        <!-- <a @click="searchPhoto('tagSearch', )" class="btn-tag" href="javascript:;">Technology</a> -->
+                        <a @click="searchPhoto('tagSearch', tag)" v-for="(tag, index) in tags" :key="index" class="btn-tag" href="javascript:;">{{tag}}</a>
                     </div>
                 </div>
             </div>
@@ -40,29 +37,30 @@ export default {
         return {
             recentPhotos: [],
             searchBar: '',
+            searchMode: 'search',
+            tags: ['Technology', 'Nature', 'iPhone', 'Dogs', 'Serbia', 'green apple'],
         }
     },
 
     methods: {
-        searchPhoto() {
-            FlickrApi.normalPhotoSearch(this.searchBar, 1, 17).then(response => {
-                var photos = response.photos.photo;
-                photos.forEach(element => {
-                    FlickrApi.getPhotoInfo(element.id).then(response => {
-                        this.recentPhotos.push(response.photo);
-                        serverBus.$emit('test', this.recentPhotos);
-                    });
+        searchPhoto(searchMode, content) {
+            if(searchMode == 'search') {
+                this.searchMode = searchMode;
+            } else if (searchMode == 'tagSearch') {
+                this.searchMode = searchMode;
+            }
+
+            FlickrApi.search(content, 1, 17, searchMode).then(response => {
+            var photos = response.photos.photo;
+            photos.forEach(element => {
+                FlickrApi.getPhotoInfo(element.id).then(response => {
+                    this.recentPhotos.push(response.photo);
                 });
-
-                
+                });
+                serverBus.$emit('test', this.recentPhotos);
+                serverBus.$emit('searchMode', this.searchMode);
             });
-
-            
-                console.log('slike iz testa');
-                console.log(this.recentPhotos);
-                
-                
-                router.push({path: 'collection'});
+            router.push({path: 'collection'});
         }
     },
 

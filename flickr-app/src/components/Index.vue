@@ -24,6 +24,7 @@ export default {
   data () {
     return {
       recentPhotos: [],
+      searchMode: 'recentSearch',
     }
   },
 
@@ -40,8 +41,7 @@ export default {
 
       setTimeout(() => {
         serverBus.$emit('test', this.recentPhotos);
-        console.log();
-        
+        serverBus.$emit('searchMode', this.searchMode);
       }, 500);
 
 

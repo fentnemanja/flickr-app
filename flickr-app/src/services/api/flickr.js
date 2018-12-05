@@ -85,16 +85,35 @@ export default {
     * 
     */
 
-    normalPhotoSearch(text, page, perPage) {
+    search(text, page, perPage, searchMode) {
+        var mode = '';
         var convertedText = text.replace(/\s+/g, '+');
         var method = 'flickr.photos.search'
-        var url = baseUrl+method+`&`+`api_key=`+apiKey+`&text=`+convertedText+`&`+`per_page=`+perPage+`&page=`+page+`&format=json&nojsoncallback=1`;
+        if(searchMode == 'search') {
+            mode = 'text';
+        } else if (searchMode == 'tagSearch') {
+            mode = 'tags';
+        }
+
+        var url = baseUrl+method+`&`+`api_key=`+apiKey+`&`+mode+`=`+convertedText+`&`+`per_page=`+perPage+`&page=`+page+`&format=json&nojsoncallback=1`;
 
         return axios.get(url).then(response => {
             return response.data
         });
 
         console.log(url);
+    },
+
+    // normalPhotoSearch(text, page, perPage) {
+    //     var convertedText = text.replace(/\s+/g, '+');
+    //     var method = 'flickr.photos.search'
+    //     var url = baseUrl+method+`&`+`api_key=`+apiKey+`&text=`+convertedText+`&`+`per_page=`+perPage+`&page=`+page+`&format=json&nojsoncallback=1`;
+
+    //     return axios.get(url).then(response => {
+    //         return response.data
+    //     });
+
+    //     console.log(url);
         
-    }
+    // }
 }
