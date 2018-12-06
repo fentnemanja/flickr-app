@@ -59,7 +59,10 @@ export default {
                 });
                 serverBus.$emit('test', this.recentPhotos);
                 serverBus.$emit('searchMode', this.searchMode);
+                serverBus.$emit('searchTerm', content);
+                serverBus.$emit('resetPageNumber', 1);
             });
+
             router.push({path: 'collection'});
         }
     },

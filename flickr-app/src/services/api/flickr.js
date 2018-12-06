@@ -90,8 +90,10 @@ export default {
         var convertedText = text.replace(/\s+/g, '+');
         var method = 'flickr.photos.search'
         if(searchMode == 'search') {
+            console.log('pretrazujem po search-u');
             mode = 'text';
         } else if (searchMode == 'tagSearch') {
+            console.log('pretrazujem po tagu');
             mode = 'tags';
         }
 

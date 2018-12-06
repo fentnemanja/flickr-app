@@ -122,7 +122,7 @@
                                     <span class="font-icon-tag"></span>
                                 </div>
                                 <div class="shot-info">
-                                    <a class="btn btn-tag" href="javascript:;" v-for="(tag, index) in this.lightboxPhoto.tags.tag" :key="index">{{tag.raw}}</a>
+                                    <a @click="searchPhoto('tagSearch', tag.raw)" class="btn btn-tag" href="javascript:;" v-for="(tag, index) in this.lightboxPhoto.tags.tag" :key="index">{{tag.raw}}</a>
                                 </div>
                             </li>
 
@@ -188,6 +188,7 @@ export default {
             displayLightbox: false,
             recentPhotos: [],
             searchMode: '',
+            searchTerm: '',
         }
     },
 
@@ -218,6 +219,23 @@ export default {
             }
         },
 
+        searchPhoto(searchMode, content) {
+            this.searchMode = searchMode;
+            this.recentPhotos = [];
+            this.searchTerm = content;
+
+            FlickrApi.search(content, 1, 17, searchMode).then(response => {
+            var photos = response.photos.photo;
+            photos.forEach(element => {
+                FlickrApi.getPhotoInfo(element.id).then(response => {
+                    this.recentPhotos.push(response.photo);
+                });
+                });
+            });
+
+            this.closeLightbox();
+        },
+
         closeLightbox() {
             this.isShotLightboxOpen = !this.isShotLightboxOpen;
             if(document.body.classList.contains('overflow-hidden')) {
@@ -228,6 +246,8 @@ export default {
         },
 
         loadMorePhotos(page) {
+            console.log('ovo je broj strane' + this.page);
+            
             if(this.searchMode == 'recentSearch') {
                 FlickrApi.getRecentPhotos(this.page, 10).then(response => {
                     var photoArray = response.photos.photo;
@@ -237,36 +257,49 @@ export default {
                         });
                     });
                 });
-            } else if(this.searchMode == 'search') {
+            } else {
+                FlickrApi.search(this.searchTerm, this.page, 17, this.searchMode).then(response => {
+                    var photos = response.photos.photo;
+                    photos.forEach(element => {
+                        FlickrApi.getPhotoInfo(element.id).then(response => {
+                            this.recentPhotos.push(response.photo);
+                        });
+                    });
+                });
                 console.log('klasicna pretraga');
-            } else if(this.searchMode == 'tagSearch') {
-                console.log('pretraga po tagu');
-            }
+            } 
+            // else if(this.searchMode == 'tagSearch') {
+            //     FlickrApi.search(this.searchTerm, this.page, 17, this.searchMode).then(response => {
+            //         var photos = response.photos.photo;
+            //         photos.forEach(element => {
+            //             FlickrApi.getPhotoInfo(element.id).then(response => {
+            //                 this.recentPhotos.push(response.photo);
+            //             });
+            //         });
+            //     });
+            //     console.log('pretraga po tagu');
+            // }
         }
     },
 
     // props: ['testPhotos'],
 
     created() {
-        if(this.$route.path == '/') {
-            // FlickrApi.getRecentPhotos(1, 10)
-            // .then(response => {
-            //     var nemanja = response.photos.photo;
-            //     nemanja.forEach(element => {
-            //         FlickrApi.getPhotoInfo(element.id).then(response => {
-            //         this.recentPhotos.push(response.photo);
-            //         });
-            //     });
-            // });
-        }
-
         serverBus.$on('test', (recentPhotos) => {
             this.recentPhotos = recentPhotos;
         });
 
         serverBus.$on('searchMode', (searchMode) => {
             this.searchMode = searchMode;
-        })
+        });
+
+        serverBus.$on('searchTerm', (searchTerm) => {
+            this.searchTerm = searchTerm;
+        });
+
+        serverBus.$on('resetPageNumber', (resetPageNumber) => {
+            this.page = resetPageNumber;
+        });
     }
 }
 </script>

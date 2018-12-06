@@ -22,7 +22,7 @@
                                 <ul class="foldout-list">
 
                                     <li class="item-foldout" v-for="(c, index) in collections" :key="index">
-                                        <a href="javascript:;">{{c}}</a>
+                                        <a @click="searchPhoto('tagSearch', c)" href="javascript:;">{{c}}</a>
                                     </li>
 
                                 </ul>
@@ -85,8 +85,15 @@ export default {
                 });
                 serverBus.$emit('test', this.recentPhotos);
                 serverBus.$emit('searchMode', this.searchMode);
+                serverBus.$emit('searchTerm', content);
+                serverBus.$emit('resetPageNumber', 1);
             });
-            router.push({path: 'collection'});
+
+            if(this.$route.path == 'collection') {
+                return;
+            } else {
+                router.push({path: 'collection'});
+            }
         }
     }
 }
