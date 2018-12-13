@@ -3,8 +3,8 @@
         <div class="layout-wrapper">
             <nav class="main-navigation">
                 <div class="header-nav-logo">
-                    <a href="javascript:;">
-                        <!-- <img src="../assets/logo.svg" alt="nav-logo"> -->
+                    <a @click="goHome" href="javascript:;">
+                        <img src="../assets/logo.svg" alt="nav-logo">
                     </a>
                 </div>
                 <div class="header-navigation-search form-element has-addon">
@@ -33,7 +33,7 @@
                         </li>
                         <li><router-link :to="{ name: 'Explore' }">Explore</router-link></li>
                     </ul>
-                    <a href="javascript:;" class="btn outlined">Login</a>
+                    <!-- <a href="javascript:;" class="btn outlined">Login</a> -->
                     <a class="close-mobile-nav hide-above-mobile" @click="openMobileNav" href="javascript:;"><i class="font-icon-x"></i></a>
                 </div>
                 <a @click="openMobileNav" class="open-mobile-nav hide-above-mobile" href="javascript:;">
@@ -67,6 +67,10 @@ export default {
             this.isMobileNavOpen = !this.isMobileNavOpen;
         },
 
+        goHome() {
+            router.push({path: '/'});
+        },
+
         searchPhoto(searchMode, content) {
             this.recentPhotos = [];
 
@@ -89,10 +93,10 @@ export default {
                 serverBus.$emit('resetPageNumber', 1);
             });
 
-            if(this.$route.path == 'collection') {
+            if(this.$route.path == 'search') {
                 return;
             } else {
-                router.push({path: 'collection'});
+                router.push({path: 'search'});
             }
         }
     }

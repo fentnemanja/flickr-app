@@ -18,9 +18,6 @@
         </ul>
  -->
         <div class="image-gallery component-wrapper">
-            <div class="title">
-                <h2>Recent photos</h2>
-            </div>
             <div class="gallery-grid">
                 <div class="image-tile" v-for="(photo, index) in recentPhotos" :key="index">
                     <div class="image-tile-header">
@@ -41,7 +38,6 @@
                         </div>
                         <div class="image-stats">
                             <ul>
-                                <li><i class="font-icon-heart"></i><span>46</span></li>
                                 <li><i class="font-icon-comment"></i><span>{{photo.comments._content}}</span></li>
                                 <li><i class="font-icon-eye"></i><span>{{photo.views}}</span></li>
                             </ul>

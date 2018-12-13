@@ -31,6 +31,7 @@
 
     .category-tile-row {
         display: flex;
+        flex-wrap: wrap;
         margin-bottom: 20px;
         
         &:last-child {
@@ -44,7 +45,16 @@
         overflow: hidden;
         transition: .3s;
         margin-right: 20px;
-        flex: 14.5%;
+        flex: 1 0 251px;
+        margin-bottom: 20px;
+
+        @include breakpoint($mobile) {
+            flex: 1 0 45%;
+        }
+
+        &:nth-child(2n+2) {
+            margin-right: 0;
+        }
 
         &:last-child {
             margin-right: 0;
@@ -68,10 +78,14 @@
     }
 
     .tile-image {
-        height: 160px;
+        height: 200px;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+
+        @include breakpoint($mobile) {
+            height: 170px;
+        }
     }
 
     .tile-image-detail {

@@ -11,7 +11,6 @@
                         </a>
                     </div>
                     <input @keyup.enter="searchPhoto('search', searchBar)" v-model="searchBar" placeholder="Search free images" type="text" name="hero-search" class="hero-search">
-                    <p>{{searchBar}}</p>
                 </div>
                 <div class="popular-categories">
                     <span>Popular categories:</span>
@@ -63,7 +62,7 @@ export default {
                 serverBus.$emit('resetPageNumber', 1);
             });
 
-            router.push({path: 'collection'});
+            router.push({path: 'search'});
         }
     },
 

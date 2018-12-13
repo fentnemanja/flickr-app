@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
-import Collection from '@/components/Collection'
+import Search from '@/components/Search'
 import Collections from '@/components/Collections-page'
 import Explore from '@/components/Explore-page'
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Index
     },
     {
-      path: '/collection',
-      name: 'Collection',
-      component: Collection
+      path: '/search',
+      name: 'Search',
+      component: Search
     },
     {
       path: '/collections',

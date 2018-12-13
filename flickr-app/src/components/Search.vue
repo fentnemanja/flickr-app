@@ -10,7 +10,7 @@ import CollectionBanner from '@/components/Collection-banner';
 import ImageGallery from '@/components/Image-gallery';
 
 export default {
-    name: 'Collection',
+    name: 'Search',
 
     components: {
         CollectionBanner: CollectionBanner,
